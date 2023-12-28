@@ -170,7 +170,7 @@ def cdc_clients() -> None:
 
 
 def cdc_terminals() -> dict:
-    directory_path = '/Users/shiryaevva/HSE/2-nd_year/DE/Project/data/'
+    directory_path = '/Users/shiryaevva/HSE/2-nd_year/DE/HSE_DE_Project/data/'
     terminals_file, terminals_update = find_first_file(directory_path, 'terminals')
     print(terminals_file, terminals_update, end='\n\n')
 
@@ -207,7 +207,7 @@ def cdc_terminals() -> dict:
 
 
 def cdc_transactions() -> dict:
-    directory_path = '/Users/shiryaevva/HSE/2-nd_year/DE/Project/data/'
+    directory_path = '/Users/shiryaevva/HSE/2-nd_year/DE/HSE_DE_Project/data/'
     transactions_file, transactions_update = find_first_file(directory_path, 'transactions')
     print(transactions_file, transactions_update, end='\n\n')
 
@@ -239,7 +239,7 @@ def cdc_transactions() -> dict:
 
 
 def cdc_passport_blacklist() -> dict:
-    directory_path = '/Users/shiryaevva/HSE/2-nd_year/DE/Project/data/'
+    directory_path = '/Users/shiryaevva/HSE/2-nd_year/DE/HSE_DE_Project/data/'
     passport_blacklist_file, passport_blacklist_update = find_first_file(directory_path, 'passport_blacklist')
     print(passport_blacklist_file, passport_blacklist_update, end='\n\n')
 

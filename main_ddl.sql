@@ -156,7 +156,7 @@ create table public.shrv_rep_fraud(
 	, fio varchar(150)
 	, phone varchar(20)
 	, event_type int
-	, report_dt timestamp(0)
+	, report_dt date
 );
 
 -- Вставляем метаданные

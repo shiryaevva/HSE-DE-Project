@@ -1,7 +1,7 @@
 import sys
 import os
 
-sys.path.append('/Users/shiryaevva/HSE/2-nd_year/DE/Project/py_scripts')
+sys.path.append('/Users/shiryaevva/HSE/2-nd_year/DE/HSE_DE_Project/py_scripts')
 
 import logging
 from py_scripts.functions import archive_file
@@ -26,7 +26,7 @@ DEFAULT_ARGS = {
 }
 
 dag = DAG(
-    dag_id='hse_de_etl_process',
+    dag_id='ETL_HSE_DE',
     schedule_interval='00 06 * * *',
     start_date=days_ago(2),
     catchup=False,
