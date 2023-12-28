@@ -12,4 +12,11 @@
 Сведения о картах, счетах и клиентах хранятся в СУБД PostgreSQL. Выгрузка для обработки предоставляется за последние три дня.
 В качестве хранилища выступает учебная база PostgreSQL. 
 
+Полное описание ТЗ проекта [здесь](https://github.com/shiryaevva/HSE_DE_Project/blob/main/task_description/%5BHSE%20DE%5D%20Проект%20-%20Описание.pdf).
+
 ## ETL
+DAG в AirFlow
+
+
+![image](https://github.com/shiryaevva/HSE_DE_Project/assets/106485769/49201cd7-903d-4362-b138-89a546dc3360)
+
