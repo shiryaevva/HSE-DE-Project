@@ -30,7 +30,7 @@ dag = DAG(
     schedule_interval='00 06 * * *',
     start_date=days_ago(2),
     catchup=False,
-    tags=['hse_project_de'],
+    tags=['hse_de'],
     default_args=DEFAULT_ARGS,
     description='Daily ETL process for reporting fraud.',
 )
@@ -104,7 +104,7 @@ task_cdc_passport_blacklist = PythonOperator(
     dag=dag,
 )
 
-# Архиваирование источников
+# Архивирование источников
 task_archive_file_terminals = PythonOperator(
     task_id='archive_file_terminals',
     python_callable=archive_file_terminals,
@@ -185,7 +185,6 @@ task_report_fraud = PostgresOperator(
     dag=dag,
 )
 
-# task_init >> [task_cdc_accounts, task_cdc_cards, task_cdc_clients, task_cdc_terminals, ]
 task_init >> task_cdc_accounts >> task_inc_accounts_hist >> task_dwh_finish >> task_report_fraud
 task_init >> task_cdc_cards >> task_inc_cards_hist >> task_dwh_finish >> task_report_fraud
 task_init >> task_cdc_clients >> task_inc_clients_hist >> task_dwh_finish >> task_report_fraud
