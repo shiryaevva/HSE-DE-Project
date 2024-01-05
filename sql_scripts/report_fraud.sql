@@ -15,7 +15,7 @@ create temporary table shrv_tmp_rep as (
 	from public.shrv_dwh_fact_transactions sdft 
 		left join public.shrv_dwh_dim_cards_hist sddch on sdft.card_num = sddch.card_num
 			and sdft.trans_date between sddch.effective_from and sddch.effective_to
-	where sdft.trans_date::date >= (
+	where sdft.trans_date >= (
 		select max_update_dt::date - interval '1 hour' 
 		from public.shrv_meta_dwh 
 		where true
