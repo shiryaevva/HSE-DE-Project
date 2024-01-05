@@ -15,7 +15,13 @@ create temporary table shrv_tmp_rep as (
 	from public.shrv_dwh_fact_transactions sdft 
 		left join public.shrv_dwh_dim_cards_hist sddch on sdft.card_num = sddch.card_num
 			and sdft.trans_date between sddch.effective_from and sddch.effective_to
-	where sdft.trans_date::date >= (select max_update_dt::date from public.shrv_meta_dwh where schema_name = 'public' and table_name = 'shrv_dwh_fact_transactions')
+	where sdft.trans_date::date >= (
+		select max_update_dt::date - interval '1 hour' 
+		from public.shrv_meta_dwh 
+		where true
+			and schema_name = 'public' 
+			and table_name = 'shrv_dwh_fact_transactions'
+		) 
 	),
 	trns_crds_trml as (
 	select 
@@ -145,6 +151,14 @@ select
 	, event_type
 	, report_dt
 from shrv_tmp_fraud
+where true
+	and event_dt::date >= (
+		select max_update_dt::date 
+		from public.shrv_meta_dwh 
+		where true
+			and schema_name = 'public' 
+			and table_name = 'shrv_dwh_fact_transactions'
+		)
 order by 1, 3, 2;
 
 -- 4. Обновление метаданных.
